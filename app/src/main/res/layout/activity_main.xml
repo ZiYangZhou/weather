@@ -15,4 +15,44 @@
         android:minHeight="?android:actionBarSize"
         android:layout_alignParentTop="true"
         xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true">
+        <!--main comtent-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dip"
+                android:id="@+id/background_layout"
+                android:background="@color/colorSeagreen"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/content_layout"
+                android:background="@color/colorTransparent"
+                android:layout_alignTop="@id/background_layout"
+                android:layout_centerInParent="true">
+                <android.support.v4.view.ViewPager
+                    android:layout_gravity="center"
+                    android:id="@+id/content_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <fragment
+                    android:layout_gravity="center"
+                    android:id="@+id/add_city_fgm"
+                    android:visibility="gone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"/>
+                    <!--class="com.iwoll.weather.fragment.AddCityFragment" />-->
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v4.widget.DrawerLayout>
 </RelativeLayout>
