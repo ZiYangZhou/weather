@@ -1,5 +1,6 @@
 package zhouxu.weather.activity;
 
+import android.app.Activity;
 import android.content.res.Configuration;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,14 +13,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import zhouxu.weather.AppManager;
 import zhouxu.weather.R;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends Activity
         implements NavigationView.OnNavigationItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AppManager.getAppManager().addActivity(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
