@@ -11,10 +11,30 @@ public enum  FragmentPage {
     private int title;
     private Class<?> clz;
     private int value;
+
     private FragmentPage(int value, int title, Class<?> clz) {
         this.value = value;
         this.title = title;
         this.clz = clz;
     }
 
+    public static FragmentPage getPageByValue(int value) {
+        for (FragmentPage p : values()) {
+            if (p.getValue() == value)
+                return p;
+        }
+        return null;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public int getTitle() {
+        return title;
+    }
+
+    public Class<?> getClz() {
+        return clz;
+    }
 }

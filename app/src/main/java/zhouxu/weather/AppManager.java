@@ -1,7 +1,8 @@
 package zhouxu.weather;
 
-import android.app.Activity;
+
 import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.Stack;
 
@@ -9,7 +10,7 @@ import java.util.Stack;
  * @author：Nazgol. Created at 2016/3/19.
  */
 public class AppManager {
-    private static Stack<Activity> activityStack;
+    private static Stack<AppCompatActivity> activityStack;
     private static AppManager instance;
 
     /**
@@ -26,9 +27,9 @@ public class AppManager {
      * 添加新的activity到activity栈
      * @param aty
      */
-    public void addActivity(Activity aty) {
+    public void addActivity(AppCompatActivity aty) {
         if (activityStack == null) {
-            activityStack = new Stack<Activity>();
+            activityStack = new Stack<AppCompatActivity>();
         }
         activityStack.push(aty);
     }
@@ -37,8 +38,8 @@ public class AppManager {
      * 获取当前的activity
      * @return
      */
-    public Activity getCurrentActivity() {
-        Activity aty = activityStack.lastElement();
+    public AppCompatActivity getCurrentActivity() {
+        AppCompatActivity aty = activityStack.lastElement();
         return aty;
     }
 
@@ -46,14 +47,14 @@ public class AppManager {
      * 结束当前activity
      */
     public void finishCurrentActivity() {
-        Activity activity = activityStack.lastElement();
+        AppCompatActivity activity = activityStack.lastElement();
         finishActivity(activity);
     }
 
     /**
      * 结束指定的Activity
      */
-    public void finishActivity(Activity activity) {
+    public void finishActivity(AppCompatActivity activity) {
         if (activity != null && !activity.isFinishing()) {
             activityStack.remove(activity);
             activity.finish();
@@ -65,7 +66,7 @@ public class AppManager {
      * 结束指定类名的Activity
      */
     public void finishActivity(Class<?> cls) {
-        for (Activity activity : activityStack) {
+        for (AppCompatActivity activity : activityStack) {
             if (activity.getClass().equals(cls)) {
                 finishActivity(activity);
                 break;

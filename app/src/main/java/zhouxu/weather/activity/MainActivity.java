@@ -1,22 +1,19 @@
 package zhouxu.weather.activity;
 
-import android.app.Activity;
-import android.content.res.Configuration;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.NavigationView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-
 import zhouxu.weather.AppManager;
 import zhouxu.weather.R;
+import zhouxu.weather.util.UIHelper;
 
-public class MainActivity extends Activity
+public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +72,13 @@ public class MainActivity extends Activity
         } else if (id == R.id.nav_setting) {
 
         } else if (id == R.id.nav_about) {
-
+            UIHelper.showAboutFragment(this);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
 
