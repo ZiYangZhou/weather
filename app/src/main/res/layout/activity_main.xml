@@ -39,6 +39,11 @@
                 android:id="@+id/content_layout"
                 android:background="@color/colorTransparent"
                 android:layout_alignTop="@id/background_layout">
+                <fragment
+                    android:name="zhouxu.weather.fragment.MainFragment"
+                    android:id="@+id/main_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
         </RelativeLayout>
         <!-- The navigation drawer -->
