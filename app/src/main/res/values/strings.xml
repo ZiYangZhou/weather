@@ -8,4 +8,9 @@
     <string name="about">关于</string>
     <string name="copyright">Copyright © Zhouxu All rights reserved.</string>
     <string name="about_version">version:1.0.0</string>
+    <string name="weather_fragment_main">晴</string>
+    <string name="temperature_fragment_main">20°C</string>
+    <string name="humidity_fragment_main">湿度：80%</string>
+    <string name="wind_direction_fragment_main">东北风2级</string>
+    <string name="updatetime_fragment_main">17:00</string>
 </resources>

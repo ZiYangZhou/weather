@@ -6,6 +6,7 @@
     <color name="colorSeagreen">#ff3cb775</color>
     <color name="colorWhite">#ffffffff</color>
     <color name="colorWhitesmoke">#fff5f5f5</color>
+    <color name="colorgray">#f9a9a9a9</color>
     <color name="colorTransparent">#00000000</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
     <color name="link_text_material_dark">@color/material_deep_teal_200</color>
