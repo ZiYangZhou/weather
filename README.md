@@ -7,7 +7,7 @@
 以及网络的理解和熟练度。作为一名Android新手，还望大家多多指教，邮箱：yibinzx@gmail.com
 
 
-##英文：
+##Eglish：
 /*
 *to do
 */
