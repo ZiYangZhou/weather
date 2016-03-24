@@ -9,14 +9,21 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.NavigationView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import org.json.JSONObject;
+
 import zhouxu.weather.AppManager;
 import zhouxu.weather.R;
+import zhouxu.weather.bean.WeatherBean;
+import zhouxu.weather.http.HttpRequest;
+import zhouxu.weather.util.JsonUtil;
 import zhouxu.weather.util.UIHelper;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements Runnable, NavigationView.OnNavigationItemSelectedListener {
     SwipeRefreshLayout mSwipeRefreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +40,27 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        /**
+         *
+         */
+            Thread thread = new Thread(this);
+            thread.start();
+            System.out.println("???");
+
     }
+
+    public void testHTTP() {
+        HttpRequest client = HttpRequest.getInstance();
+        String jsonstr = client.getJsonByCityId("CN101070201");
+        System.out.println(jsonstr);
+        JSONObject jsonObject = JsonUtil.getJSON(jsonstr);
+        String str = jsonObject.toString();
+        WeatherBean weatherBean = new WeatherBean();
+        weatherBean.setWeatherBeanByJson(jsonObject);
+        Log.d("JSON2",str);
+    }
+
     public void initView() {
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
     }
@@ -105,6 +132,9 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-
+    @Override
+    public void run() {
+        testHTTP();
+    }
 }
 

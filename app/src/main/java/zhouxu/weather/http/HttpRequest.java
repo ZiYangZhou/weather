@@ -1,5 +1,7 @@
 package zhouxu.weather.http;
 
+import android.provider.Settings;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -10,9 +12,10 @@ import zhouxu.weather.util.NetworkUtil;
 /**
  * @author：Nazgol. Created at 2016/3/21.
  */
-public class HttpRequest {
+public class HttpRequest implements Runnable {
     private static HttpRequest instance = null;
     private HttpRequest() {}
+    Thread mThread = null;
 
     public static HttpRequest getInstance() {
         if (instance == null) {
@@ -49,8 +52,18 @@ public class HttpRequest {
             reader.close();
             result = sbf.toString();
         } catch (Exception e) {
-
+            System.out.println("进入了catch");
+            e.printStackTrace();
+        } finally {
+            System.out.println("进入finnally");
+            System.out.println(result);
+            return result;
         }
-        return result;
+    }
+
+
+    @Override
+    public void run() {
+
     }
 }
